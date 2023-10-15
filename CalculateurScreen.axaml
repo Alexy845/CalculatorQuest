@@ -2,40 +2,76 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="400"
+        mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="300"
         x:Class="CalculatorScreen.CalculateurScreen"
         Title="CalculateurScreen">
     <Grid>
-        <Label x:Name="Operation" Content="Operation" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Result" Content="Result" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
-        
-        <!-- Buttons for numbers 0-9 -->
-        <Button x:Name="Zero" Content="0" HorizontalAlignment="Left" Margin="50,340,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Un" Content="1" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Deux" Content="2" HorizontalAlignment="Left" Margin="50,220,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Trois" Content="3" HorizontalAlignment="Left" Margin="90,220,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Quatre" Content="4" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Cinq" Content="5" HorizontalAlignment="Left" Margin="50,260,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Six" Content="6" HorizontalAlignment="Left" Margin="90,260,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Sept" Content="7" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Huit" Content="8" HorizontalAlignment="Left" Margin="50,300,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Neuf" Content="9" HorizontalAlignment="Left" Margin="90,300,0,0" VerticalAlignment="Top"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <!-- Buttons for operations -->
-        <Button x:Name="More" Content="+" HorizontalAlignment="Left" Margin="50,180,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Less" Content="-" HorizontalAlignment="Left" Margin="90,180,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Multiply" Content="X" HorizontalAlignment="Left" Margin="90,140,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Divide" Content="/" HorizontalAlignment="Left" Margin="50,140,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Modulo" Content="%" HorizontalAlignment="Left" Margin="10, 140, 0, 0" VerticalAlignment="Top"></Button>
-        <!-- ... add the rest of the operation buttons here -->
+        <!-- Display area -->
+        <Border BorderBrush="White" BorderThickness="2" CornerRadius="5" Margin="10"/>
+            <StackPanel Grid.Row="0" Orientation="Vertical">
+                <Label x:Name="Operation" Content="Operation" HorizontalAlignment="Right" FontSize="20" />
+                <Label x:Name="Result" Content="result here" HorizontalAlignment="Right" FontSize="30" />
+            </StackPanel>
+            <!-- Button area -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-        <!-- Other buttons -->
-        <Button x:Name="Arrow" Content="←" HorizontalAlignment="Left" Margin="90,100,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Point" Content="." HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="ClearAll" Content="C" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="ClearEntry" Content="CE" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Equal" Content="=" HorizontalAlignment="Left" Margin="90,340,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Sign" Content="+/-" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
-        
+                <!-- Buttons for numbers and operations -->
+                <!-- First row -->
+                <Button x:Name="ClearAll" Content="C" Grid.ColumnSpan="2" />
+                <Button x:Name="ClearEntry" Content="CE" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" />
+                <Button x:Name="Del" Content="←" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" />
+
+                <!-- Second row -->
+                <Button x:Name="Mod" Content="%" Grid.Row="1" Grid.Column="0"></Button>
+                <Button x:Name="Multiply" Content="x" Grid.Row="1" Grid.Column="2" />
+                <Button x:Name="Divide" Content="/" Grid.Row="1" Grid.Column="1" />
+
+                <!-- Third row -->
+                <Button x:Name="Sign" Content="+/-" Grid.Row="2" Grid.Column="0"></Button>
+                <Button x:Name="Plus" Content="+" Grid.Row="2" Grid.Column="1" />
+                <Button x:Name="Less" Content="-" Grid.Row="2" Grid.Column="2" />
+
+                <!-- Fourth row -->
+                <Button x:Name="Un" Content="1" Grid.Row="3" Grid.Column="0" />
+                <Button x:Name="Deux" Content="2" Grid.Row="3" Grid.Column="1" />
+                <Button x:Name="Trois" Content="3" Grid.Row="3" Grid.Column="2" />
+
+                <!-- Fifth row -->
+                <Button x:Name="Quatre" Content="4" Grid.Row="4" Grid.Column="0" />
+                <Button x:Name="Cinq" Content="5" Grid.Row="4" Grid.Column="1" />
+                <Button x:Name="Six" Content="6" Grid.Row="4" Grid.Column="2" />
+
+                <!-- Sixth row -->
+                <Button x:Name="Sept" Content="7" Grid.Row="5" Grid.Column="0" />
+                <Button x:Name="Huit" Content="8" Grid.Row="5" Grid.Column="1" />
+                <Button x:Name="Neuf" Content="9" Grid.Row="5" Grid.Column="2" />
+                
+                <!-- Seventh row -->
+                <Button x:Name="Zero" Content="0" Grid.Row="6" Grid.Column="1" />
+                <Button x:Name="Point" Content="." Grid.Row="6" Grid.Column="0" />
+                <Button x:Name="Equal" Content="=" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"
+                        Background="#FF007ACC" Foreground="#FFFFFFFF" />
+
+            </Grid>
     </Grid>
 </Window>

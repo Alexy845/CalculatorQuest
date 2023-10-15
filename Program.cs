@@ -1,7 +1,8 @@
 ﻿using Avalonia;
 using System;
+using CalculatorScreen;
 
-namespace CalculatorScreen;
+namespace CalculatorQuest;
 
 class Program
 {
